@@ -15,7 +15,7 @@ def encrypt(plaintext: str, keyword: str) -> str:
     interval_end = 126
     for i in range(len(plaintext)):
         symbol = plaintext[i]
-        shift =  key_numbers[i % len(key_numbers)]
+        shift =  key_numbers[i % len(key_numbers)] if keyword else 0
 
         if interval_begin <= ord(symbol) <= interval_end:
             output += chr((ord(symbol) - interval_begin + shift) % total_symbols + interval_begin)
@@ -41,7 +41,7 @@ def decrypt(ciphertext: str, keyword: str) -> str:
     interval_end = 126
     for i in range(len(ciphertext)):
         symbol = ciphertext[i]
-        shift = key_numbers[i % len(key_numbers)]
+        shift = key_numbers[i % len(key_numbers)] if keyword else 0
 
         if interval_begin <= ord(symbol) <= interval_end:
             output += chr((ord(symbol) - interval_begin - shift) % total_symbols + interval_begin)

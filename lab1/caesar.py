@@ -27,3 +27,4 @@ def decrypt(ciphertext: str, shift: int) -> str:
     то есть шифрует на противоположный сдвиг
     """
     return encrypt(ciphertext, -shift)
+

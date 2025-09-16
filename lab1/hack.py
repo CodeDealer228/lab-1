@@ -1,5 +1,4 @@
 import caesar
-import random
 
 
 def error(text: str) -> int:
